@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade 3 de BD3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Cadastro de Alunos</h1>
+
+    <div class="content">
+      <form id="add-student-form">
+        <input type="text" name="cod_aluno" placeholder="Código do Aluno" required />
+        <input type="text" name="cod_turma" placeholder="Código da Turma" required />
+        <input type="text" name="nome" placeholder="Nome do aluno" required />
+        <input type="text" name="cpf" placeholder="CPF do aluno" required />
+        <input type="text" name="rg" placeholder="RG do aluno" required />
+        <input type="text" name="telefone_aluno" placeholder="Telefone do aluno" required />
+        <input type="text" name="telefone_responsavel" placeholder="Telefone do responsável" required />
+        <input type="email" name="email" placeholder="Email para contato" required />
+        <input type="date" name="data_nascimento" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+      <ul id="students-list"></ul>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCahEVDOi3IfmhlWu-gYYBzcf3DHOPHJQ8",
+        authDomain: "bd3-nosql-firestore-dd96f.firebaseapp.com",
+        projectId: "bd3-nosql-firestore-dd96f",
+        storageBucket: "bd3-nosql-firestore-dd96f.firebasestorage.app",
+        messagingSenderId: "985340236657",
+        appId: "1:985340236657:web:114886cde097704cc25cd0"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      
+      // Configure Firestore
+      db.settings({ 
+        timestampsInSnapshots: true,
+        merge: true
+      });
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
